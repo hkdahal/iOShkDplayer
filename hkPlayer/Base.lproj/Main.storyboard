@@ -19,7 +19,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="6BZ-vw-h2t">
-                                        <rect key="frame" x="0.0" y="28" width="295" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="295" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6BZ-vw-h2t" id="uvQ-nN-SKe">
                                             <rect key="frame" x="0.0" y="0.0" width="295" height="43.5"/>
@@ -67,13 +67,14 @@
         <!--Currently Playing...-->
         <scene sceneID="LRM-Sp-QXF">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AmV-Fx-Pfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="YtO-bD-5In" customClass="PlayerController" customModule="hkPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hj8-7f-EXr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o4m-Wq-ztD">
-                                <rect key="frame" x="88" y="449" width="31" height="30"/>
+                                <rect key="frame" x="85" y="488" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="prev.png"/>
                                 <connections>
@@ -81,7 +82,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hJ8-D9-tGd">
-                                <rect key="frame" x="127" y="431" width="57" height="56"/>
+                                <rect key="frame" x="124" y="470" width="57" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="play.png"/>
                                 <connections>
@@ -89,7 +90,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HU3-tq-N5e">
-                                <rect key="frame" x="192" y="449" width="32" height="30"/>
+                                <rect key="frame" x="189" y="488" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="next.png"/>
                                 <connections>
@@ -97,30 +98,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FbE-RX-gUL">
-                                <rect key="frame" x="241" y="443" width="43" height="36"/>
+                                <rect key="frame" x="284" y="428" width="25" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="repeat.png"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eFh-0v-RoK">
-                                <rect key="frame" x="86" y="532" width="56" height="30"/>
+                                <rect key="frame" x="86" y="534" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Playlists"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="r4O-dw-mTC">
-                                <rect key="frame" x="178" y="532" width="50" height="30"/>
+                                <rect key="frame" x="178" y="534" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Playing"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IW8-eT-tFT">
-                                <rect key="frame" x="20" y="443" width="37" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="shuffle.png"/>
-                                <connections>
-                                    <action selector="shuffleButton:" destination="YtO-bD-5In" eventType="touchUpInside" id="ad3-wr-Jqr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dIs-pc-RtR">
-                                <rect key="frame" x="137" y="500" width="37" height="35"/>
+                                <rect key="frame" x="242" y="485" width="37" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="stop.png"/>
                                 <connections>
@@ -128,7 +121,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="26" sectionHeaderHeight="28" sectionFooterHeight="28" id="76I-74-MKm">
-                                <rect key="frame" x="10" y="191" width="303" height="232"/>
+                                <rect key="frame" x="10" y="191" width="303" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -146,10 +139,53 @@
                                     <outlet property="delegate" destination="YtO-bD-5In" id="sDH-dX-p2z"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hk.jpg" id="IA2-sR-iHn">
-                                <rect key="frame" x="97" y="69" width="97" height="114"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hk.jpg" id="IA2-sR-iHn">
+                                <rect key="frame" x="97" y="67" width="124" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="pDe-Xz-Oec">
+                                <rect key="frame" x="39" y="396" width="243" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="updateMusicSlider:" destination="YtO-bD-5In" eventType="valueChanged" id="2mZ-wQ-yUu"/>
+                                </connections>
+                            </slider>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" text="0:00" textAlignment="natural" selectable="NO" id="Hdy-hE-W1h">
+                                <rect key="frame" x="5" y="398" width="34" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="0.00" textAlignment="natural" selectable="NO" id="dgz-mk-La0">
+                                <rect key="frame" x="284" y="398" width="37" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="..." textAlignment="natural" selectable="NO" id="pev-ab-kLz">
+                                <rect key="frame" x="135" y="435" width="141" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="Now Playing: " textAlignment="natural" selectable="NO" id="P4P-aE-AnO">
+                                <rect key="frame" x="51" y="434" width="85" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IW8-eT-tFT">
+                                <rect key="frame" x="11" y="428" width="22" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="shuffle.png"/>
+                                <connections>
+                                    <action selector="shuffleButton:" destination="YtO-bD-5In" eventType="touchUpInside" id="ad3-wr-Jqr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -158,11 +194,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="coverArtImage" destination="IA2-sR-iHn" id="t6G-qA-AtK"/>
+                        <outlet property="currentSong" destination="pev-ab-kLz" id="XWK-dq-2LD"/>
+                        <outlet property="endTime" destination="dgz-mk-La0" id="UIU-rP-wzN"/>
+                        <outlet property="musicSlider" destination="pDe-Xz-Oec" id="76x-RV-goe"/>
                         <outlet property="playPauseButton" destination="hJ8-D9-tGd" id="TRb-6R-0BA"/>
                         <outlet property="songsTable" destination="76I-74-MKm" id="MXi-cf-FCB"/>
+                        <outlet property="startTime" destination="Hdy-hE-W1h" id="5a2-NM-aDQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AmV-Fx-Pfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1095" y="356"/>
         </scene>

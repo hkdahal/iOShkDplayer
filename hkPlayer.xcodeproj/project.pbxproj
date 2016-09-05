@@ -40,6 +40,10 @@
 		F28CD0A51D7BC8B90009974A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F28CD0A31D7BC8B90009974A /* LaunchScreen.storyboard */; };
 		F28CD0AE1D7BCC420009974A /* Chull.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F28CD0AD1D7BCC420009974A /* Chull.mp3 */; };
 		F28CD0B01D7BD3A90009974A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28CD0AF1D7BD3A90009974A /* AVFoundation.framework */; };
+		F2C4A18E1D7DD70E0076666B /* bipul.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2C4A18A1D7DD70E0076666B /* bipul.jpg */; };
+		F2C4A18F1D7DD70E0076666B /* gone.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C4A18B1D7DD70E0076666B /* gone.png */; };
+		F2C4A1901D7DD70E0076666B /* new york.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2C4A18C1D7DD70E0076666B /* new york.jpg */; };
+		F2C4A1911D7DD70E0076666B /* srk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2C4A18D1D7DD70E0076666B /* srk.jpg */; };
 		F2FAA30C1D7CDF100093D5C8 /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FAA30B1D7CDF100093D5C8 /* SongManager.swift */; };
 		F2FAA30E1D7CE4100093D5C8 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FAA30D1D7CE4100093D5C8 /* PlayerController.swift */; };
 		F2FAA3151D7CE6530093D5C8 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FAA30F1D7CE6530093D5C8 /* next.png */; };
@@ -88,6 +92,10 @@
 		F28CD0A61D7BC8B90009974A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F28CD0AD1D7BCC420009974A /* Chull.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Chull.mp3; sourceTree = "<group>"; };
 		F28CD0AF1D7BD3A90009974A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F2C4A18A1D7DD70E0076666B /* bipul.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bipul.jpg; path = Assets.xcassets/bipul.jpg; sourceTree = "<group>"; };
+		F2C4A18B1D7DD70E0076666B /* gone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gone.png; path = Assets.xcassets/gone.png; sourceTree = "<group>"; };
+		F2C4A18C1D7DD70E0076666B /* new york.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "new york.jpg"; path = "Assets.xcassets/new york.jpg"; sourceTree = "<group>"; };
+		F2C4A18D1D7DD70E0076666B /* srk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = srk.jpg; path = Assets.xcassets/srk.jpg; sourceTree = "<group>"; };
 		F2FAA30B1D7CDF100093D5C8 /* SongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
 		F2FAA30D1D7CE4100093D5C8 /* PlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerController.swift; path = ../PlayerController.swift; sourceTree = "<group>"; };
 		F2FAA30F1D7CE6530093D5C8 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = next.png; path = Assets.xcassets/next.png; sourceTree = "<group>"; };
@@ -115,6 +123,7 @@
 		F221733D1D7D25B300D74A60 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
+				F2C4A1891D7DD5960076666B /* Cover Arts */,
 				F22173411D7D263D00D74A60 /* Best */,
 				F22173401D7D263200D74A60 /* Cool */,
 				F221733F1D7D262B00D74A60 /* Bipul Chhetri */,
@@ -227,6 +236,17 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		F2C4A1891D7DD5960076666B /* Cover Arts */ = {
+			isa = PBXGroup;
+			children = (
+				F2C4A18A1D7DD70E0076666B /* bipul.jpg */,
+				F2C4A18B1D7DD70E0076666B /* gone.png */,
+				F2C4A18C1D7DD70E0076666B /* new york.jpg */,
+				F2C4A18D1D7DD70E0076666B /* srk.jpg */,
+			);
+			name = "Cover Arts";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,11 +323,13 @@
 				F2FAA31A1D7CE6530093D5C8 /* shuffle.png in Resources */,
 				F22173691D7D273600D74A60 /* Kahiley Kahi.mp3 in Resources */,
 				F2FAA31C1D7CE6B30093D5C8 /* stop.png in Resources */,
+				F2C4A1911D7DD70E0076666B /* srk.jpg in Resources */,
 				F22173571D7D270700D74A60 /* Humko Humi Se Churalo.mp3 in Resources */,
 				F22173591D7D270700D74A60 /* Kya Yehi Pyar Hai.mp3 in Resources */,
 				F2FAA3181D7CE6530093D5C8 /* prev.png in Resources */,
 				F22173651D7D273600D74A60 /* Allarey Jovan.mp3 in Resources */,
 				F2FAA3171D7CE6530093D5C8 /* play.png in Resources */,
+				F2C4A1901D7DD70E0076666B /* new york.jpg in Resources */,
 				F22173391D7D0F7300D74A60 /* Tune Jo Na Kaha.mp3 in Resources */,
 				F221736B1D7D277300D74A60 /* Timilai Jun.mp3 in Resources */,
 				F221735D1D7D270700D74A60 /* Tumse Milke Dilka Hai.mp3 in Resources */,
@@ -318,6 +340,7 @@
 				F221733C1D7D0F7300D74A60 /* Baby Ko Bass Pasand Hai.mp3 in Resources */,
 				F2FAA3151D7CE6530093D5C8 /* next.png in Resources */,
 				F2FAA3161D7CE6530093D5C8 /* pause.png in Resources */,
+				F2C4A18E1D7DD70E0076666B /* bipul.jpg in Resources */,
 				F22173561D7D270700D74A60 /* Desi Romance.mp3 in Resources */,
 				F28CD0A21D7BC8B90009974A /* Assets.xcassets in Resources */,
 				F22173671D7D273600D74A60 /* Mero Maya.mp3 in Resources */,
@@ -326,6 +349,7 @@
 				F22173491D7D26A700D74A60 /* I Took A Pill.mp3 in Resources */,
 				F22173381D7D0F7300D74A60 /* Raabta.mp3 in Resources */,
 				F28CD0A01D7BC8B90009974A /* Main.storyboard in Resources */,
+				F2C4A18F1D7DD70E0076666B /* gone.png in Resources */,
 				F22173641D7D273600D74A60 /* Siriri.mp3 in Resources */,
 				F28CD0AE1D7BCC420009974A /* Chull.mp3 in Resources */,
 				F221733A1D7D0F7300D74A60 /* Pee Loon.mp3 in Resources */,
