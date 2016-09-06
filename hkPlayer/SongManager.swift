@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class Song{
     var coverArt: UIImage
@@ -32,4 +33,8 @@ class Playlist{
         self.name = name
         self.songs[self.name] = songs
     }
+}
+
+class Stuff{
+    var thePlayer: AVAudioPlayer?
 }

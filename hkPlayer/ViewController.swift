@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -66,9 +67,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toPlayer"{
-            let VC = segue.destinationViewController as UIViewController
+            let VC = segue.destinationViewController as! MyOwnController
             let indexPath: NSIndexPath = theTable.indexPathForSelectedRow!
             VC.title = playlists[indexPath.row]
+            //let path = NSBundle.mainBundle().pathForResource("Bistarai", ofType:"mp3")!
+            //let url = NSURL(fileURLWithPath: path)
         }
     }
     
