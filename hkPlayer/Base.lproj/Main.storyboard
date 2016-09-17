@@ -58,11 +58,12 @@
                     <connections>
                         <outlet property="theTable" destination="GS2-3W-fzx" id="Cnz-zN-yFI"/>
                         <segue destination="YtO-bD-5In" kind="push" identifier="toPlayer" id="mkR-9V-7rR"/>
+                        <segue destination="Pp7-iN-AQT" kind="push" identifier="toPlaylists" id="ucI-US-Q2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="719" y="366"/>
+            <point key="canvasLocation" x="581" y="198"/>
         </scene>
         <!--Currently Playing...-->
         <scene sceneID="LRM-Sp-QXF">
@@ -211,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AmV-Fx-Pfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095" y="356"/>
+            <point key="canvasLocation" x="1073" y="674"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vq0-BM-1x1">
@@ -231,7 +232,68 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLm-0R-j4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="187" y="366"/>
+            <point key="canvasLocation" x="142" y="356"/>
+        </scene>
+        <!--Playlists-->
+        <scene sceneID="GkE-vQ-7nR">
+            <objects>
+                <viewController id="Pp7-iN-AQT" customClass="PlaylistController" customModule="hkPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dSD-6f-Hhz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EqB-KF-BXs">
+                                <rect key="frame" x="13" y="37" width="295" height="427"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="PJD-Gi-gog">
+                                        <rect key="frame" x="0.0" y="92" width="295" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PJD-Gi-gog" id="eTx-Xm-3fU">
+                                            <rect key="frame" x="0.0" y="0.0" width="295" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pp7-iN-AQT" id="y1o-Ns-NLg"/>
+                                    <outlet property="delegate" destination="Pp7-iN-AQT" id="oja-sG-iUi"/>
+                                </connections>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Playlist" textAlignment="natural" id="Z1t-XI-52P">
+                                <rect key="frame" x="20" y="69" width="226" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ffE-cv-v7C">
+                                <rect key="frame" x="72" y="487" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Playlists"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OQd-Uw-ZMF">
+                                <rect key="frame" x="164" y="487" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Playing"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Playlists" id="2Ay-83-rOv">
+                        <barButtonItem key="backBarButtonItem" title="Playlists" id="WXY-kK-rXX"/>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="theTable" destination="EqB-KF-BXs" id="tAr-43-ZDg"/>
+                        <segue destination="YtO-bD-5In" kind="push" identifier="playlistToPlayer" id="5nZ-aj-3ZY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GfY-Xh-Rtq" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="525" y="938"/>
         </scene>
     </scenes>
     <resources>
@@ -245,4 +307,7 @@
         <image name="volume.png" width="512" height="512"/>
         <image name="volumeDown.png" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5nZ-aj-3ZY"/>
+    </inferredMetricsTieBreakers>
 </document>

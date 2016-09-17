@@ -10,7 +10,8 @@ import UIKit
 import AVFoundation
 
 class MyOwnController: UIViewController{
-    var myInformation: [String: AnyObject]?
+    var myCategory: Category?
+    var myPlaylist: Playlist?
 }
 
 
@@ -51,13 +52,13 @@ class PlayerController: MyOwnController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var currentSong: UITextView!
     
-    @IBAction func nextButton(sender: AnyObject) {
+    @IBAction func nextButton(_ sender: AnyObject) {
         counter += 1
         playTheNext()
     }
     
     
-    @IBAction func prevButton(sender: AnyObject) {
+    @IBAction func prevButton(_ sender: AnyObject) {
         if counter == 0{
             counter = songs.count-1
         }else{
@@ -67,60 +68,67 @@ class PlayerController: MyOwnController, UITableViewDelegate, UITableViewDataSou
         playTheNext()
     }
     
-    @IBAction func updateVolumeSlider(sender: AnyObject) {
+    @IBAction func updateVolumeSlider(_ sender: AnyObject) {
         player!.volume = volumeSlider.value
     }
     
-    @IBAction func shuffleButton(sender: AnyObject) {
+    @IBAction func shuffleButton(_ sender: AnyObject) {
     }
     
-    @IBAction func playPauseAction(sender: UIButton) {
+    @IBAction func playPauseAction(_ sender: UIButton) {
         
         if current_song != currentSong.text{
             currentSong.text = current_song
         }
         
-        if player!.playing{
+        if player!.isPlaying{
             player!.pause()
-            playPauseButton.setBackgroundImage(UIImage(named: "play"), forState: UIControlState.Normal)
+            playPauseButton.setBackgroundImage(UIImage(named: "play"), for: UIControlState())
         }else{
             player!.play()
-            playPauseButton.setBackgroundImage(UIImage(named: "pause"), forState: UIControlState.Normal)
+            playPauseButton.setBackgroundImage(UIImage(named: "pause"), for: UIControlState())
         }
     }
     
-    @IBAction func stopButton(sender: UIButton) {
+    @IBAction func stopButton(_ sender: UIButton) {
         player!.stop()
         player!.currentTime = 0
         musicSlider.value = 0.0
-        playPauseButton.setBackgroundImage(UIImage(named: "play"), forState: UIControlState.Normal)
+        playPauseButton.setBackgroundImage(UIImage(named: "play"), for: UIControlState())
         currentSong.text = "..."
     }
     
-    @IBAction func updateMusicSlider(sender: AnyObject) {
+    @IBAction func updateMusicSlider(_ sender: AnyObject) {
         //player.stop()
-        player!.currentTime = NSTimeInterval(musicSlider.value)
+        player!.currentTime = TimeInterval(musicSlider.value)
         
         //player.play()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        player = AVAudioPlayer()
-        // player = myInformation!["myPlayer"] as? AVAudioPlayer
-        feedSongs()
+        player = self.myPlaylist?.getMyPlayer
+        // player = myInmformation!["myPlayer"] as? AVAudioPlayer
+        songs = (self.myPlaylist?.songs)! //(self.myCategory?.playlist!.songs)!
+        coverArtImage.image = self.myPlaylist?.playlistCover
+        //feedSongs()
         songsTable.rowHeight = CGFloat(integerLiteral: 25)
-        songsTable.scrollEnabled = true
+        songsTable.isScrollEnabled = true
         musicSlider.value = 0.0
         volumeSlider.value = 0.5
         //volumeSlider.setThumbImage(UIImage(named: "volumeIndicator"), forState: UIControlState.Normal)
+        
+    }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        player?.stop()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         //playMusic("Chull")
         playTheNext()
     }
@@ -131,75 +139,24 @@ class PlayerController: MyOwnController, UITableViewDelegate, UITableViewDataSou
         player?.volume = volumeSlider.value
     }
     
-    func feedSongs(){
-        let hindi_songs = ["Raabta", "Tune Jo Na Kaha", "Pee Loon", "Ishq Sufiyana", "Baby Ko Bass Pasand Hai", "Chull"]
-        let cool_songs = ["I Took A Pill", "Bad Blood", "Somebody", "Gone Gone", "Geronimo", "Timilai Jun", "Oh My Love"]
-        let nepali_songs = ["Siriri", "Allarey Jovan", "Mann", "Mero Maya", "Junkeri", "Kahiley Kahi"]
-        let best_songs = ["Bistarai", "Desi Romance", "Humko Humi Se Churalo", "I Gotta Feeling", "Kya Yehi Pyar Hai", "Lal Dupatta", "Main Hoon Na", "Main Hoon Naa", "Tumse Milke Dilka Hai"]
-        let coverArts = ["bipul.jpg", "gone.png", "new york.jpg", "srk.jpg"]
-        
-        switch self.navigationItem.title! {
-        case "Hindi":
-            feedMe(hindi_songs)
-            coverArtImage.image = UIImage(named: coverArts[2])
-            //musicSlider.setThumbImage, forState: UIControlState.Normal
-        case "Bipul Chhetri":
-            feedMe(nepali_songs)
-            coverArtImage.image = UIImage(named: coverArts[0])
-            musicSlider.setThumbImage(UIImage(named: "triangle"), forState: UIControlState.Normal)
-        case "Cool Songs":
-            feedMe(cool_songs)
-            coverArtImage.image = UIImage(named: coverArts[1])
-        default:
-            feedMe(best_songs)
-            coverArtImage.image = UIImage(named: coverArts[3])
-        }
-    }
-    
-    func feedMe(songTitles: [String]){
-        for st in songTitles{
-            let a_song = Song(file: st)
-            songs.append(a_song)
-        }
-    }
-    
-    func playMusic(songName: String?){
+    func playMusic(_ playThisSong: Song?){
         current += 1
-        
-        var url: NSURL
-        
-        if songName == "Bad Blood"{
-            let path = NSBundle.mainBundle().pathForResource(songName, ofType:"m4a")!
-            url = NSURL(fileURLWithPath: path)
-        }else{
-            let path = NSBundle.mainBundle().pathForResource(songName, ofType:"mp3")!
-            url = NSURL(fileURLWithPath: path)
-        }
-        
-        //let url = NSURL(string: "http://link.songspk.guru/link1/song1.php?songid=7571")!
-        
-        //let theData = NSData(contentsOfURL: url!)
-        do {
-            
-            player = try AVAudioPlayer(contentsOfURL: url)
-            _ = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: #selector(PlayerController.updateTheSlider), userInfo: nil, repeats: true)
-            musicSlider.maximumValue = Float(player!.duration)
-            endTime.text = giveTime(musicSlider.maximumValue)
-            player!.delegate = self
-            player!.play()
-            current_song = songName!
-            currentSong.text = current_song
-            playPauseButton.setBackgroundImage(UIImage(named: "pause"), forState: UIControlState.Normal)
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: AVAudioSessionCategoryOptions.DuckOthers )
-            
-        } catch {
-            // couldn't load file :(
-        }
+        player = Playlist.playTheMusic(playThisSong!.fileName)
+        //self.myPlaylist?.playTheMusic(songName!)
+        _ = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(PlayerController.updateTheSlider), userInfo: nil, repeats: true)
+        musicSlider.maximumValue = Float(player!.duration)
+        endTime.text = giveTime(musicSlider.maximumValue)
+        player!.delegate = self
+        player!.play()
+        current_song = (playThisSong?.title)!
+        currentSong.text = current_song
+        playPauseButton.setBackgroundImage(UIImage(named: "pause"), for: UIControlState())
+        self.songsTable.selectRow(at: IndexPath(row: counter, section: 0), animated: true, scrollPosition: UITableViewScrollPosition.middle)
     }
     
-    func giveTime(value: Float) -> String{
+    func giveTime(_ value: Float) -> String{
         let minute = Int(value/60)
-        let seconds = Int(value%60)
+        let seconds = Int(value.truncatingRemainder(dividingBy: 60))
         var timeString = minute.description + ":"
         if seconds < 10{
             timeString += "0" + seconds.description
@@ -209,28 +166,28 @@ class PlayerController: MyOwnController, UITableViewDelegate, UITableViewDataSou
         return timeString
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "songCell")
-        cell.textLabel?.text = songs[indexPath.row].title
+        let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "songCell")
+        cell.textLabel?.text = songs[(indexPath as NSIndexPath).row].title
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let theSong = songs[indexPath.row].title
-        counter = indexPath.row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let theSong = songs[(indexPath as NSIndexPath).row]
+        counter = (indexPath as NSIndexPath).row
         playMusic(theSong)
     }
     
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool)
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
         if flag {
             counter += 1
@@ -239,17 +196,14 @@ class PlayerController: MyOwnController, UITableViewDelegate, UITableViewDataSou
         if ((counter + 1) == songs.count) {
             counter = 0
         }
-        
-        playMusic(songs[counter].fileName)
+        playMusic(songs[counter])
     }
     
     func playTheNext(){
         if (counter == songs.count || counter < 0) {
             counter = 0
         }
-        playMusic(songs[counter].fileName)
-        self.songsTable.selectRowAtIndexPath(NSIndexPath(forRow: counter, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+        playMusic(songs[counter])
     }
-    
 
 }
